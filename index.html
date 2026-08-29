@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Стеклотара — каталог стеклянных бутылок</title>
+  <meta name="description" content="Каталог стеклянных бутылок для алкогольной и пищевой продукции. Подбор по объёму, размерам и назначению.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="#">СТЕКЛО<span>ТАРА</span></a>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О компании</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">СТЕКЛЯННЫЕ БУТЫЛКИ</div>
+      <h1>Бутылки для вашего продукта</h1>
+      <p>Каталог стеклянной тары для водки, коньяка, ликёра, напитков и пищевой продукции. Подберите подходящую форму и запросите коммерческое предложение.</p>
+      <a class="btn" href="#catalog">Смотреть каталог</a>
+    </div>
+    <div class="hero-bottles">
+      <div class="bottle b1"><i></i></div>
+      <div class="bottle b2"><i></i></div>
+      <div class="bottle b3"><i></i></div>
+    </div>
+  </div>
+</section>
+
+<section id="catalog" class="catalog container">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">КАТАЛОГ</div>
+      <h2>Стеклянные бутылки</h2>
+    </div>
+    <div class="counter" id="counter"></div>
+  </div>
+
+  <div class="filters">
+    <input id="search" type="search" placeholder="Поиск по названию или артикулу">
+    <select id="volume">
+      <option value="">Все объёмы</option>
+      <option value="250">250 мл</option>
+      <option value="500">500 мл</option>
+      <option value="700">700 мл</option>
+      <option value="1000">1 л</option>
+    </select>
+    <select id="category">
+      <option value="">Все категории</option>
+      <option value="vodka">Водка</option>
+      <option value="cognac">Коньяк</option>
+      <option value="liqueur">Ликёр</option>
+      <option value="food">Пищевая продукция</option>
+    </select>
+  </div>
+
+  <div id="products" class="products"></div>
+</section>
+
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">О КОМПАНИИ</div>
+      <h2>Подбираем стеклотару под задачу</h2>
+    </div>
+    <div>
+      <p>Помогаем подобрать бутылку по объёму, диаметру, высоте, типу венчика и назначению. Для серийных поставок можно запросить характеристики, наличие и цену.</p>
+      <div class="stats">
+        <div><strong>250–1000</strong><span>мл</span></div>
+        <div><strong>4</strong><span>основные категории</span></div>
+        <div><strong>24/7</strong><span>приём заявок</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts container">
+  <div>
+    <div class="eyebrow">КОНТАКТЫ</div>
+    <h2>Запросить цену</h2>
+    <p>Оставьте заявку — менеджер свяжется с вами и уточнит объём поставки.</p>
+  </div>
+  <form id="leadForm">
+    <input name="name" required placeholder="Ваше имя">
+    <input name="phone" required placeholder="Телефон">
+    <input name="product" id="productField" placeholder="Бутылка / артикул">
+    <textarea name="message" rows="4" placeholder="Комментарий"></textarea>
+    <button class="btn" type="submit">Отправить заявку</button>
+    <small>Демо-форма: подключите почту или CRM перед публикацией.</small>
+  </form>
+</section>
+
+<footer>
+  <div class="container footer">
+    <div class="logo">СТЕКЛО<span>ТАРА</span></div>
+    <div>© 2026. Каталог стеклянной тары</div>
+  </div>
+</footer>
+
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <button class="close" aria-label="Закрыть">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
