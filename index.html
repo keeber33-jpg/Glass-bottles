@@ -3,32 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ООО «Партнёр» — стеклянные бутылки</title>
-<meta name="description" content="Каталог стеклянных бутылок для безалкогольных напитков, крепкого алкоголя, тихих и игристых вин.">
+<title>ООО «Партнёр» — стеклянные бутылки | каталог</title>
+<meta name="description" content="Каталог стеклянных бутылок: подбор по объёму, серии венчика и назначению. Запрос цены и условий оптовой поставки.">
+<meta property="og:title" content="ООО «Партнёр» — стеклянные бутылки">
+<meta property="og:description" content="Каталог стеклянных бутылок с фильтрами по объёму, серии венчика и назначению.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="header"><div class="container nav">
-<a class="logo" href="#">ПАРТНЁР<span>СТЕКЛО</span></a>
-<nav><a href="#catalog">Каталог</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
+<a class="logo" href="#top" aria-label="Партнёр Стекло">ПАРТНЁР<span>СТЕКЛО</span></a>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+<nav id="siteNav"><a href="#catalog">Каталог</a><a href="#about">О компании</a><a href="#contacts">Контакты</a></nav>
 <a class="phone" href="tel:+79190164897">+7 919 016-48-97</a>
 </div></header>
+<main id="top">
 <section class="hero"><div class="container hero-grid"><div>
 <div class="eyebrow">СТЕКЛЯННАЯ ТАРА</div><h1>Бутылки для вашего продукта</h1>
-<p>Каталог стеклянных бутылок для безалкогольных напитков, крепкого алкоголя, тихих и игристых вин. Подберите модель и отправьте заявку на расчёт.</p>
+<p>Подберите готовую модель по объёму, серии венчика и назначению. Для оптовой поставки подготовим расчёт по выбранной позиции.</p>
 <a class="btn" href="#catalog">Смотреть каталог</a></div>
-<div class="hero-bottles"><div class="bottle b1"></div><div class="bottle b2"></div><div class="bottle b3"></div></div>
+<div class="hero-bottles" aria-hidden="true"><div class="bottle b1"></div><div class="bottle b2"></div><div class="bottle b3"></div></div>
 </div></section>
 <section id="catalog" class="catalog container">
-<div class="section-head"><div><div class="eyebrow">КАТАЛОГ VCT</div><h2>Стеклянные бутылки</h2><p class="catalog-note">111 моделей из объёмных разделов каталога VCT: 100–1000 мл. Назначение — ориентировочная классификация для поиска.</p></div><div class="counter" id="counter"></div></div>
+<div class="section-head"><div><div class="eyebrow">КАТАЛОГ</div><h2>Стеклянные бутылки</h2><p class="catalog-note">Фильтруйте каталог по объёму, серии венчика и назначению.</p></div><div class="counter" id="counter"></div></div>
 <div class="catalog-layout">
-<aside class="filters"><div class="filter-title">Фильтр каталога</div><label>Поиск<input id="search" type="search" placeholder="Название или артикул"></label><label>Объём<select id="volume"><option value="">Все объёмы</option><option value="100">100 мл</option><option value="200">200 мл</option><option value="250">250 мл</option><option value="330">330 мл</option><option value="375">375 мл</option><option value="500">500 мл</option><option value="700">700 мл</option><option value="750">750 мл</option><option value="1000">1000 мл</option></select></label><label>Категория<select id="category"><option value="">Все категории</option><option value="soft">Безалкогольные напитки</option><option value="strong">Крепкий алкоголь</option><option value="still">Тихие вина</option><option value="sparkling">Игристые вина</option><option value="food">Пищевые продукты / масла</option></select></label><button id="resetFilters" class="filter-reset" type="button">Сбросить фильтры</button></aside>
-<main><div id="products" class="products"></div></main>
+<aside class="filters" id="filters">
+<div class="filter-title">Фильтр каталога</div>
+<label>Поиск<input id="search" type="search" placeholder="Название или артикул" autocomplete="off"></label>
+<label>Объём, мл<div class="range-row"><output id="minVolumeOut">100</output><span>—</span><output id="maxVolumeOut">1000</output></div><div class="range-stack"><input id="minVolume" type="range" min="100" max="1000" step="5" value="100"><input id="maxVolume" type="range" min="100" max="1000" step="5" value="1000"></div></label>
+<label>Венчик / серия<select id="neck"><option value="">Все</option></select></label>
+<label>Вид продукции<select id="category"><option value="">Все категории</option><option value="soft">Безалкогольные напитки</option><option value="strong">Крепкий алкоголь</option><option value="still">Тихие вина</option><option value="sparkling">Игристые вина</option><option value="food">Пищевые продукты / масла</option></select></label>
+<button id="resetFilters" class="filter-reset" type="button">Сбросить фильтры</button>
+</aside>
+<main><div class="mobile-filter-row"><button id="mobileFiltersBtn" class="filter-mobile-btn" type="button">Фильтры</button><span id="mobileCounter"></span></div><div id="products" class="products"></div></main>
 </div></section>
-<section id="about" class="about"><div class="container about-grid"><div><div class="eyebrow">О КОМПАНИИ</div><h2>Подбираем стеклотару под задачу</h2></div><div><p>ООО «Партнёр» занимается поставкой стеклянной тары. Поможем подобрать бутылку по объёму, форме, диаметру, высоте и назначению.</p><div class="stats"><div><strong>100–1000</strong><span>мл</span></div><div><strong>4</strong><span>категории</span></div><div><strong>24/7</strong><span>приём заявок</span></div></div></div></div></section>
-<section id="contacts" class="contacts container"><div><div class="eyebrow">КОНТАКТЫ</div><h2>Запросить цену</h2><p>Оставьте заявку, и мы свяжемся с вами для уточнения модели, количества и условий поставки.</p><p><b>Телефон:</b> <a href="tel:+79190164897">+7 919 016-48-97</a><br><b>WhatsApp / Telegram:</b> <a href="tel:+79190164897">+7 919 016-48-97</a><br><b>Адрес:</b> г. Владимир, ул. Производственная, 26</p></div>
-<form id="leadForm"><input name="name" required placeholder="Ваше имя"><input name="phone" required placeholder="Телефон"><input name="product" id="productField" placeholder="Бутылка / артикул"><textarea name="message" rows="4" placeholder="Комментарий"></textarea><button class="btn" type="submit">Отправить заявку</button></form></section>
+<section id="about" class="about"><div class="container about-grid"><div><div class="eyebrow">О КОМПАНИИ</div><h2>Подбираем стеклотару под задачу</h2></div><div><p>Поможем подобрать бутылку по объёму, форме, серии венчика и назначению, а затем подготовить запрос на оптовую поставку.</p><div class="stats"><div><strong>100–1000</strong><span>мл</span></div><div><strong id="totalModels">111</strong><span>моделей в каталоге</span></div><div><strong>24/7</strong><span>приём заявок</span></div></div></div></div></section>
+<section id="contacts" class="contacts container"><div><div class="eyebrow">КОНТАКТЫ</div><h2>Запросить цену</h2><p>Оставьте заявку, указав модель и количество. Менеджер уточнит технические параметры и условия поставки.</p><p><b>Телефон:</b> <a href="tel:+79190164897">+7 919 016-48-97</a><br><b>Адрес:</b> г. Владимир, ул. Производственная, 26</p></div>
+<form id="leadForm" class="lead-form"><input name="name" required placeholder="Ваше имя"><input name="phone" required placeholder="Телефон"><input name="product" id="productField" placeholder="Бутылка / артикул"><textarea name="message" rows="4" placeholder="Количество, требования и комментарий"></textarea><button class="btn" type="submit">Отправить заявку</button></form></section>
+</main>
 <footer><div class="container footer"><div class="logo">ПАРТНЁР<span>СТЕКЛО</span></div><div>© 2026 ООО «Партнёр»</div></div></footer>
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
 <div id="imageModal" class="modal image-modal" aria-hidden="true"><div class="image-viewer"><button class="close" id="closeImage" aria-label="Закрыть">×</button><div class="zoom-help">Колесо мыши — приблизить/отдалить · Перетаскивание — перемещение</div><div id="zoomStage"><img id="zoomImage" alt=""></div><div class="zoom-controls"><button id="zoomOut">−</button><button id="zoomReset">100%</button><button id="zoomIn">+</button></div></div></div>
 <div id="detailModal" class="modal" aria-hidden="true"><div class="detail-box"><button class="close" id="closeDetail" aria-label="Закрыть">×</button><div id="detailContent"></div></div></div>
 <script src="products.js"></script><script src="script.js"></script>
